@@ -5,6 +5,7 @@ Leetcode Primary Algorithm Practices (Array)
 @url: https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/
 '''
 
+"1"
 def removeDuplicates(self, nums):
     """
     :type nums: List[int]
@@ -17,7 +18,8 @@ def removeDuplicates(self, nums):
         else:
             i += 1
     return len(nums)
- 
+
+"2" 
 def maxProfit(self, prices):
     
     """
@@ -32,7 +34,8 @@ def maxProfit(self, prices):
             max_prof += d
             
     return max_prof
-    
+
+"3"    
 def rotate(self, nums, k):
     """
     :type nums: List[int]
@@ -42,5 +45,29 @@ def rotate(self, nums, k):
     n = len(nums)
     nums[:n-k] = nums[:n-k][::-1]
     nums[n-k:] = nums[n-k:][::-1]
-    nums.reverse()    
-    
+    nums.reverse()
+
+"4"    
+def containsDuplicate(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: bool
+    """
+    set_num = set(nums)
+    list_set_num = list(set_num)
+    if len(list_set_num) == len(nums):
+        return False
+    else:
+        return True 
+
+"5"        
+def singleNumber(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    xor = 0
+    for i in range(len(nums)):
+        xor = xor ^ nums[i]
+    return xor        
+        

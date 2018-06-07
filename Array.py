@@ -70,4 +70,25 @@ def singleNumber(self, nums):
     for i in range(len(nums)):
         xor = xor ^ nums[i]
     return xor        
-        
+    
+"6"
+def intersect(self, nums1, nums2):
+    """
+    :type nums1: List[int]
+    :type nums2: List[int]
+    :rtype: List[int]
+    """
+    """
+    # Pythonic:
+    from collections import Counter
+    nums_intersect = list((Counter(nums1)&Counter(nums2)).elements())
+
+    return nums_intersect
+    """
+    # Normal:
+    if len(nums1) < 1 or len(nums2) < 1:
+        return []
+    res = []
+    counter = {}
+    for num in nums1:
+        counter[num] = counter.get(num,0) + 1        

@@ -1,3 +1,10 @@
 # My_Leetcode_Solution  
   
-Array: Primary algorithms about Array.
+## Easy:  
+Array  
+
+## Medium:  
+  
+## Hard:  
+  
+  

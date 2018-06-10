@@ -2,6 +2,7 @@
   
 ## Easy:  
 Array  
+String
 
 ## Medium:  
   

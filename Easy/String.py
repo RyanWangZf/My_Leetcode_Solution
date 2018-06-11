@@ -81,7 +81,32 @@ class Solution:
         if s1 == s1[::-1]:
             return True
         else:
-            return False 
+            return False
+    
+    "6"
+    def myAtoi(self, s):
+        """
+        :type str: str
+        :rtype: int
+        """
+        import re
+        s = s.strip()
+        if len(s) <= 0:
+            return 0
+        elif s[0] not in [str(x) for x in range(10)]+["+","-"]:
+            return 0
+        try:
+            if s[0] in ["+","-"]:
+                num = int(float(re.findall("[\%s]+\d+"%(s[0]),s)[0]))
+            else:
+                num = int(float(re.findall("\d+",s)[0]))
+        except:
+            return 0
+        num = min(num,2**31-1)
+        num = max(num,-2**31)
+        return num
+
+        
 
     
     

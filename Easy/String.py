@@ -105,8 +105,39 @@ class Solution:
         num = min(num,2**31-1)
         num = max(num,-2**31)
         return num
-
+    
+    "7"
+    def strStr(self, haystack, needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        # method: KMP algorithm
+        if len(needle) == 0:
+            return 0
         
+        s,p = haystack,needle
+        i,j,m,n = -1,0,len(s),len(p)
+        next = [-1] * n
+        # get array of next
+        while j < n-1:
+            if i == -1 or p[i] == p[j]:
+                i,j = i+1,j+1
+                next[j] = i
+            else:
+                i = next[i]
+                
+        # do matching
+        i = j = 0
+        while i < m and j < n:
+            if j == -1 or s[i] == p[j]:
+                i,j = i+1,j+1
+            else:
+                j = next[j]
+        if j == n:
+            return i - j
+        return -1        
 
     
     

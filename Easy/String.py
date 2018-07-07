@@ -138,7 +138,47 @@ class Solution:
         if j == n:
             return i - j
         return -1        
-
+    
+    "8"
+    def countAndSay(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        def func(s0,num): # direct recursion
+            s1,tag = "",0
+            if num < 2:
+                return s0
+            for i,s in enumerate(s0):
+                if i == 0: continue
+                if s0[i] == s0[i-1]:
+                    tag += 1
+                else:
+                    s1 += str(tag+1) + s0[i-1]
+                    tag = 0
+            s1 += str(tag+1) + s0[-1]
+            return func(s1,num-1)
+        res = func("1",n)
+        return res
+    
+    "9"
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if len(strs) < 1:
+            return ""
+        min_str = len(sorted(strs,key=lambda x:len(x))[0])
+        tag,sub_lcp = 1,""
+        while tag <= len(strs)+1:
+            sub = list(map(lambda x: x[:tag],strs))
+            if len(list(set(sub))) == 1:
+                sub_lcp = sub[0]
+                tag += 1
+            else:
+                break
+        return sub_lcp    
     
     
     
